@@ -15,26 +15,24 @@ class sendurl:
         with open('{}/config/domain.yml'.format(a), 'r') as f:
             data = yaml.load(f, Loader=yaml.FullLoader)
             f.close()
-        data = data['domain']
-        data = list(data)
-        self.domain_name = data
+        #data = dict(data)
+        for i in data.values():
+            self.domain_name = i 
         return self.domain_name
     def streamName(self):
-        with open('{}/config/app.yml'.format(a), 'r') as f:
+        with open('{}/config/stream.yml'.format(a), 'r') as f:
             data = yaml.load(f, Loader=yaml.FullLoader)
             f.close()
-        data = data['app']
-        data = list(data)
-        self.stream_name = data
+        #data = dict(data)
+        for i in data.keys():
+            self.stream_name.append(i)
         return self.stream_name
     def streamApp(self):
         with open('{}/config/stream.yml'.format(a), 'r') as f:
             data = yaml.load(f, Loader=yaml.FullLoader)
             f.close()
-        data = data['stream']
-        data = list(data)
-        self.stream_app = data
-        #print(self.stream_app)
+        for i in data.values():
+            self.stream_app = i
         return self.stream_app
 
 
